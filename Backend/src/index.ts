@@ -7,7 +7,11 @@ import { swaggerSpec } from "./config/swagger";
 const app = express();
 
 app.use(cors({
-  origin: "https://task-management-system.vercel.app"
+  origin: [
+    "http://localhost:5173",
+    "https://task-management-system-by-yogesh.vercel.app"
+  ],
+  credentials: true
 }));
 app.use(express.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
