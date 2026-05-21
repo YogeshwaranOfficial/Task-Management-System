@@ -9,7 +9,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://task-management-system-by-yogesh.vercel.app/"
+    "https://task-management-system-by-yogeshwaran.vercel.app"    
   ],
   credentials: true
 }));
