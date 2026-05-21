@@ -6,13 +6,21 @@ import { swaggerSpec } from "./config/swagger";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "https://task-management-system.vercel.app"
+}));
 app.use(express.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use("/api/tasks", router);
 
-app.listen(5000,()=>{
-    console.log("Server running on port 5000");
+// app.listen(5000,()=>{
+//     console.log("Server running on port 5000");
+// });
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 //to check the other server running netstat -ano | findstr :PORT and kill it with taskkill /PID <ID> /F
